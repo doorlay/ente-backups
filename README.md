@@ -43,7 +43,7 @@ If the Restic variables are left empty, the daily backup job will skip silently.
 [ntfy.sh](https://ntfy.sh) sends push notifications to your phone or desktop when syncs or backups succeed or fail.
 
 1. Install the ntfy app on your phone ([Android](https://play.google.com/store/apps/details?id=io.heckel.ntfy) / [iOS](https://apps.apple.com/app/ntfy/id1625396347)) or use the [web app](https://ntfy.sh/app).
-2. Choose a topic name — this can be anything, but should be unique and hard to guess (e.g. `my-ente-backups-a1b2c3`).
+2. Choose a topic name; this can be anything, but should be unique and hard to guess (e.g. `my-ente-backups-a1b2c3`).
 3. Subscribe to your topic in the ntfy app.
 4. Set `NTFY_TOPIC` in `.env`:
 ```
@@ -51,6 +51,8 @@ NTFY_TOPIC=my-ente-backups-a1b2c3
 ```
 
 If `NTFY_TOPIC` is left empty, notifications are disabled.
+
+**How notifications work:** Sync failures and timeouts trigger an immediate notification. Successes are batched into a daily summary sent after every 24 runs (roughly once per day), reporting how many succeeded and how many failed. Restic backups notify on both success and failure.
 
 ### Development
 - `docker compose exec backups ente-sync` — run the ente export manually
