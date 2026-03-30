@@ -1,0 +1,13 @@
+services:
+  backups:
+    build: .
+    env_file: .env
+    volumes:
+      - /data/backups:/data/backups
+      - ente-secrets:/srv/backups/ente-secrets
+      - results:/srv/backups
+    restart: unless-stopped
+
+volumes:
+  ente-secrets: {}
+  results: {}

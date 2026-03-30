@@ -1,0 +1,2 @@
+0 * * * * /usr/local/bin/ente-sync
+0 20 * * * /bin/bash /usr/local/bin/restic-backup.sh
