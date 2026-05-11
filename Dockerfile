@@ -28,7 +28,7 @@ COPY --from=builder /ente-sync /usr/local/bin/ente-sync
 COPY restic-backup.sh /usr/local/bin/restic-backup.sh
 COPY crontab /etc/crontab
 
-RUN mkdir -p /srv/backups/tmp /data/backups
+RUN mkdir -p /srv/backups/tmp /data/ente-photos
 
 ENV TMPDIR=/srv/backups/tmp
 ENV TZ=America/Los_Angeles

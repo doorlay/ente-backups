@@ -3,7 +3,7 @@ services:
     build: .
     env_file: .env
     volumes:
-      - /data/backups:/data/backups
+      - /data/ente-photos:/data/ente-photos
       - ente-secrets:/srv/backups/ente-secrets
       - ente-cli-data:/cli-data
       - results:/srv/backups

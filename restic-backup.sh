@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BACKUP_PATH="/data/backups"
+BACKUP_PATH="/data/ente-photos"
 
 if [[ -z "${RESTIC_REPOSITORY:-}" ]]; then
   echo "RESTIC_REPOSITORY not set, skipping backup"
