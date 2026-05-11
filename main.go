@@ -26,14 +26,9 @@ func main() {
 	lockFile := filepath.Join(os.TempDir(), lockFileName)
 
 	exportDir := os.Getenv("EXPORT_DIR")
-	secretsPath := os.Getenv("SECRETS_PATH")
 
 	if exportDir == "" {
 		log.Fatal("EXPORT_DIR must be set")
-	}
-
-	if secretsPath == "" {
-		log.Fatal("SECRETS_PATH must be set")
 	}
 
 	// Prevent overlapping runs
@@ -49,15 +44,9 @@ func main() {
 	}
 	defer syscall.Flock(int(lockHandle.Fd()), syscall.LOCK_UN)
 
-	if err := os.MkdirAll(filepath.Dir(secretsPath), 0700); err != nil {
-		log.Fatalf("failed to create secrets directory: %v", err)
-	}
-
 	if err := os.MkdirAll(exportDir, 0755); err != nil {
 		log.Fatalf("failed to create export directory: %v", err)
 	}
-
-	os.Setenv("ENTE_CLI_SECRETS_PATH", secretsPath)
 
 	args := []string{"export", exportDir}
 
