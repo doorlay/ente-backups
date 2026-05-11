@@ -19,8 +19,9 @@ RUN curl -fsSL "https://github.com/aptible/supercronic/releases/download/v0.2.33
     chmod +x /usr/local/bin/supercronic
 
 # Install ente CLI
-RUN curl -fsSL "https://github.com/ente-io/ente/releases/latest/download/ente-linux-${TARGETARCH}" \
-      -o /usr/local/bin/ente && \
+ARG ENTE_CLI_VERSION=v0.2.3
+RUN curl -fsSL "https://github.com/ente-io/ente/releases/download/cli-${ENTE_CLI_VERSION}/ente-cli-${ENTE_CLI_VERSION}-linux-${TARGETARCH}.tar.gz" \
+      | tar -xz -C /usr/local/bin ente && \
     chmod +x /usr/local/bin/ente
 
 COPY --from=builder /ente-sync /usr/local/bin/ente-sync
