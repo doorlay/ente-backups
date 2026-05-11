@@ -3,7 +3,7 @@ services:
     build: .
     env_file: .env
     volumes:
-      - /data/ente-photos:/data/ente-photos
+      - ${EXPORT_DIR:-/data/ente-photos}:${EXPORT_DIR:-/data/ente-photos}
       - ente-cli-data:/cli-data
       - results:/srv/backups
     restart: unless-stopped
