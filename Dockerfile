@@ -33,4 +33,4 @@ RUN mkdir -p /srv/backups/tmp /data/backups
 ENV TMPDIR=/srv/backups/tmp
 ENV TZ=America/Los_Angeles
 
-CMD ["supercronic", "/etc/crontab"]
+CMD ["/usr/local/bin/supercronic", "/etc/crontab"]
