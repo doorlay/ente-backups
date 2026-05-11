@@ -5,9 +5,11 @@ services:
     volumes:
       - /data/backups:/data/backups
       - ente-secrets:/srv/backups/ente-secrets
+      - ente-cli-data:/cli-data
       - results:/srv/backups
     restart: unless-stopped
 
 volumes:
   ente-secrets: {}
+  ente-cli-data: {}
   results: {}
