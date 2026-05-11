@@ -52,7 +52,7 @@ NTFY_TOPIC=my-ente-backups-a1b2c3
 
 If `NTFY_TOPIC` is left empty, notifications are disabled.
 
-**How notifications work:** Sync failures and timeouts trigger an immediate notification. Successes are batched into a daily summary sent after every 24 runs (roughly once per day), reporting how many succeeded and how many failed. Restic backups notify on both success and failure.
+Sync failures and timeouts trigger an immediate notification. To prevent notification fatigue, successes are batched into a daily summary sent after every 24 runs, reporting how many succeeded. Restic backups notify on both success and failure.
 
 ### Development
 - `docker compose exec backups ente-sync` — run the ente export manually
