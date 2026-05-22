@@ -7,6 +7,11 @@ services:
       - ente-cli-data:/cli-data
       - results:/srv/backups
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "test", "-f", "/srv/backups/ente-sync.lock"]
+      interval: 5m
+      timeout: 10s
+      retries: 3
 
 volumes:
   ente-cli-data: {}
