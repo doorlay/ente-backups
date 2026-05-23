@@ -5,7 +5,8 @@ Automated local and remote backups of your Ente photo library.
 - Push notifications for backup success/errors via ntfy.sh (optional)
 
 ### Prerequisites
-- Docker Compose 
+- Docker Compose (v2.17.0 or later recommended)
+- Docker Engine 24.0+ 
 
 ### Setup
 This is best run on a headless server with enough free storage for your photo library (e.g. I run this on a Raspberry Pi connected to a 240GB SSD). By default, syncing from Ente occurs hourly and backups to S3 happen daily at 8pm PST, but these are both configurable.
